@@ -34,18 +34,16 @@ const options = {
   }
 };
 
-gulp.task('default', ['clean', 'dist']);
-
 gulp.task('clean', () => {
   gulp.src(options.distFolder)
     .pipe(clean());
 });
 
-gulp.task('dist', ['dist_fonts', 'dist_js', 'dist_css']);
+gulp.task('default', ['dist_fonts', 'dist_js', 'dist_css']);
 
 gulp.task('dist_fonts', () => {
   gulp.src(options.dependencies.fonts)
-    .pipe(gulp.dest(options.fontsFolder))
+    .pipe(gulp.dest(options.fontsFolder));
 });
 
 gulp.task('dist_js', () => {

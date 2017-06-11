@@ -1,0 +1,19 @@
+{
+  "name": "openmeetup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LeonardoFerreiraa/openmeetup.git",
+  "author": "Leonardo Ferreira <mail@leonardoferreira.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.8",
+    "jquery": "^3.2.1"
+  }
+}

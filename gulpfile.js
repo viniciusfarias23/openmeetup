@@ -5,13 +5,14 @@ const concat    = require('gulp-concat');
 const rename    = require('gulp-rename');
 const clean     = require('gulp-clean');
 const replace   = require('gulp-replace');
+const babel     = require('gulp-babel');
 
 const options = {
-  baseDir:    "./src/main/resources/static",
-  jsFiles:    [
+  baseDir: "./src/main/resources/static",
+  jsFiles: [
     "./src/main/resources/static/js/*.js"
   ],
-  cssFiles:   [
+  cssFiles: [
     "./src/main/resources/static/css/*.css",
     "!./src/main/resources/static/css/login.css"
   ],
@@ -33,17 +34,25 @@ const options = {
   }
 };
 
-gulp.task('dist', ['dist_js', 'dist_css', 'dist_fonts']);
+gulp.task('default', ['clean', 'dist']);
 
 gulp.task('clean', () => {
   gulp.src(options.distFolder)
     .pipe(clean());
 });
 
+gulp.task('dist', ['dist_fonts', 'dist_js', 'dist_css']);
+
+gulp.task('dist_fonts', () => {
+  gulp.src(options.dependencies.fonts)
+    .pipe(gulp.dest(options.fontsFolder))
+});
+
 gulp.task('dist_js', () => {
   gulp.src(options.dependencies.js.concat(options.jsFiles))
     .pipe(concat(options.distFolder))
     .pipe(replace('../fonts', '../dist/fonts'))
+    .pipe(babel({ presets: ['es2015'] }))
     .pipe(rename('dist.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(options.distFolder));
@@ -57,10 +66,3 @@ gulp.task('dist_css', () => {
     .pipe(uglifycss())
     .pipe(gulp.dest(options.distFolder));
 });
-
-gulp.task('dist_fonts', () => {
-  gulp.src(options.dependencies.fonts)
-    .pipe(gulp.dest(options.fontsFolder))
-})
-
-gulp.task('default', ['clean', 'dist']);

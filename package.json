@@ -6,9 +6,11 @@
   "author": "Leonardo Ferreira <mail@leonardoferreira.com.br>",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 html, body{
-	font-family: 'Montserrat', sans-serif;
+   font-family: 'Montserrat', sans-serif;
    height: 100%;
-	font-size: 14px;
+   font-size: 14px;
 }
 
 body {
@@ -41,8 +41,6 @@ input:-webkit-autofill {
    display: flex;
    justify-content: center;
 }
-
-
 
 .infos-links ul > li {
    padding-bottom: 10px;
@@ -123,7 +121,6 @@ input:-webkit-autofill {
     opacity: .3;
 }
 
-
 .form-login {
     padding-left: 150px;
     padding-right: 150px;
@@ -172,7 +169,6 @@ input:-webkit-autofill {
     background-image: none;
     border-radius: 0;
 }
-
 
 .form-control {
     display: block;

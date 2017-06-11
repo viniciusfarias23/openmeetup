@@ -29,6 +29,9 @@ public class Account extends ApplicationDomain implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @ManyToOne
+    private Company company;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(() -> role.toString());

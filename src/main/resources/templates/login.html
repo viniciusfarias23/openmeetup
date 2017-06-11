@@ -1,23 +1,81 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <title>Spring Security Example </title>
+<title>OpenMeetup</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+<link th:href="@{/css/login.css}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
+<div class="container contexto-login">
+    <div class="container">
+        <div th:if="${param.error}" class="alert alert-danger col-md-offset-2 col-md-8 alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Usuário ou senha invalidos.
+        </div>
 
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
+        <div th:if="${param.logout}" class="alert alert-success col-md-offset-2 col-md-8 alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Desconectado com sucesso.
+        </div>
+    </div>
 
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+    <div class="wrapper-login">
+        <div class="hidden-xs infos-login">
+            <p class="text-center">
+                <i class="fa fa-comments fa-2x icone-login" aria-hidden="true"></i><br>
+                <span class="versão-login text-center"></span>
+            </p>
+
+            <footer class="infos-links">
+                <ul class="list-inline">
+                    <li>
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank"><i class="fa fa-github-alt"></i></a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <div class="content-login">
+            <p class="welcome">/ OpenMeetup </p>
+            <div>
+                <div>
+                    <div></div>
+                    <form class="form-signin form-horizontal form-login" th:action="@{/login}" method="POST">
+                        <label>Usuário</label>
+                        <input name="username" class="form-control" required type="text">
+                        <br>
+
+                        <label>Senha</label>
+                        <input name="password" class="form-control" required type="password">
+
+                        <span></span>
+                        <span></span>
+
+                        <button class="btn btn-lg btn-primary spaceTop-login30 btn-block" type="submit">
+                            Entrar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" direitos-login">
+        <div class="col-md-12 col-xs-12 col-sm-12"><br/>
+            <p class="text-center">OpenMeetup | 2017 - 2017 </p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+

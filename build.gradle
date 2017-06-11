@@ -33,6 +33,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
+	compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
 
 	runtime('org.postgresql:postgresql')

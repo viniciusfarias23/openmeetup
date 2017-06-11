@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/application">
 
-<head>
-    <title>Hello World!</title>
-    <script th:src="@{/dist/dist.min.js}" type="text/javascript"></script>
-    <link th:href="@{/dist/dist.min.css}" rel="stylesheet"></link>
-</head>
-
-<body>
-
-<div sec:authorize="isAnonymous()">
-    Hello
-</div>
+<th:block layout:fragment="content">
+    <div sec:authorize="isAnonymous()">
+        Hello
+    </div>
 
 
-<div sec:authorize="isAuthenticated()">
-    Hello <span th:text ="${#authentication.principal.username}"></span>
-    <form th:action="@{/logout}" method="post" >
-        <input type="submit" value="Sign Out"/>
-    </form>
+    <div sec:authorize="isAuthenticated()">
+        Hello <span th:text="${#authentication.principal.username}"></span>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
 
-    ROLE:
-    <div sec:authorize="hasRole('ADMIN')">ADMIN</div>
-    <div sec:authorize="hasRole('DEFAULT')">DEFAULT</div>
-</div>
-</body>
+        ROLE:
+        <div sec:authorize="hasRole('ADMIN')">ADMIN</div>
+        <div sec:authorize="hasRole('DEFAULT')">DEFAULT</div>
+    </div>
+</th:block>
+
 </html>
